@@ -55,14 +55,19 @@ public class CaesarCipher {
         alphabet[25] = 'z';
         //ystem.out.println(alphabet[20]);
         for (i=0; i<26; i++) {
-            if (i < 25-offset) {
-                System.out.println("Complete " + i + alphabet[i]);
+            if (offset <i) {
+                //System.out.println("Complete " + i + alphabet[i]);
                 //cipher.set((i+offset), alphabet[i]);
+                //cipher.set((i-offset+1), alphabet[i]);
+                cipher.set(i, alphabet[i-offset+1]);
+                System.out.println("Complete " + i + alphabet[i] + (i-offset) + cipher.get(i));
                // System.out.println("Complete " + cipher.get(i) + alphabet[i] +i);
             } else {
-                System.out.println("Complete " + i + alphabet[i]);
+                //System.out.println("Complete " + i + alphabet[i]);
                 //System.out.println("Complete " + i + " more than");
-                //cipher.set((i-25+offset), alphabet[i]);
+                //cipher.set((i+25-offset), alphabet[i]);
+                cipher.set((i), alphabet[i+25-offset]);
+                System.out.println("Complete " + i + alphabet[i] + (i+25-offset) + cipher.get(i));
                 //System.out.println("Complete " + cipher.get(i) + alphabet[i] + i);
             }
         }
@@ -70,6 +75,7 @@ public class CaesarCipher {
     }
 
     public int get(int i) {
+        System.out.println(cipher.get(i));
         return cipher.get(i); 
         //return alphabet[i];
     }
@@ -94,7 +100,7 @@ public class CaesarCipher {
     public String encode(String message){
         char[] charArray = message.toCharArray();
         for(i=0; i< charArray.length; i++) {
-            if () {
+           // if () {
 
             // }
 
@@ -115,6 +121,7 @@ public class CaesarCipher {
 
     public static void main(String[] args) {
         CaesarCipher classUnderTest = new CaesarCipher(3);
+        classUnderTest.get(17);
     }
     
 }
