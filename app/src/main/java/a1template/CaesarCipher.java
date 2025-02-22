@@ -55,52 +55,8 @@ public class CaesarCipher {
         alphabet[24] = 'y';
         alphabet[25] = 'z';
         for (i=0; i<26; i++) {
-            cipher.set(i, alphabet[(i + offset)%26]);
-            System.out.println(cipher.get(i));
-            //while (i<offset) {
-                //cipher.set(i, alphabet[26-offset+i]);
-               // System.out.println("alphabet" + alphabet[26-offset+i]);
-                //System.out.println(cipher.get(i)); 
-                //break;
-            //}
-            // while (i==offset) {
-            //     cipher.set(i, alphabet[0]);
-            //     System.out.println(cipher.get(i)); 
-            //     break;
-            // }
-            // while (i>=offset) {
-            //     cipher.set(i, alphabet[i-offset]);
-            //     System.out.println("i= " + i);
-            //     System.out.println("alph num= " + (i-offset));
-            //     System.out.println("alph num= " + alphabet[i-offset]);
-            //     System.out.println("alph n15= " + alphabet[15]);
-            //     System.out.println(cipher.get(i)); 
-            //     break;
-            // }
-            // if(i<offset-1) {
-            //     cipher.set(i, alphabet[26-offset+i]);
-            //     System.out.println(cipher.get(i));
-            // } //else if (i == offset) {
-            //     //cipher.set(i, alphabet[0]); 
-            //     //System.out.println(cipher.get(i)); 
-            //  else if (i>offset) {
-            //     cipher.set(i, alphabet[i-offset]);
-            //     System.out.println(cipher.get(i));
-            // }
-            //if ( {
-                //System.out.println("Complete " + i + alphabet[i]);
-                //cipher.set((i+offset), alphabet[i]);
-                //cipher.set((i-offset+1), alphabet[i]);
-                // cipher.set((i-offset-1), alphabet[i-offset]);
-                // System.out.println("Complete " + i + alphabet[i-offset] + (i-offset-1) + cipher.get(i));
-               // System.out.println("Complete " + cipher.get(i) + alphabet[i] +i);
-            //} else {
-                //System.out.println("Complete " + i + alphabet[i]);
-                //System.out.println("Complete " + i + " more than");
-                //cipher.set((i+25-offset), alphabet[i]);
-                // cipher.set(i, alphabet[((25+i-offset))]);
-                // System.out.println("Complete " + i + alphabet[25+i-offset] + ((26+i-offset)) + cipher.get(i));
-                //System.out.println("Complete " + cipher.get(i) + alphabet[i] + i);
+            cipher.set(i, alphabet[(26 - offset + i)%26]);
+            System.out.println((26 + offset + i)%26);
             }
         }
 
@@ -132,10 +88,8 @@ public class CaesarCipher {
     public String encode(String message){
         char[] charArray = message.toCharArray();
         for(i=0; i< charArray.length; i++) {
-           // if () {
-
-            // }
-
+           findIndex(charArray[i]);
+           
         }
 
         return new String(); 
