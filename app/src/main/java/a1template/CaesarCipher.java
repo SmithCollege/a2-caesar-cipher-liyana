@@ -137,9 +137,7 @@ public class CaesarCipher {
     }
 
     public static void main(String[] args) {
-        CaesarCipher classUnderTest = new CaesarCipher(8);
-        //classUnderTest.get(17);
-        classUnderTest.encode("this is a secret");
+        
     }
     
 }

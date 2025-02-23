@@ -4,19 +4,23 @@
 
 Your readme should include the following information. Each student needs to submit all of this information independently, even when pair programming. 
 
-Programming Partner Name:
+Programming Partner Name: none
 
-Other Collaborators (and kudos to people who were especially helpful):
+Other Collaborators (and kudos to people who were especially helpful): Buddy Luong
 
-References Used:
+References Used: https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html, https://www.geeksforgeeks.org/
 
 
 ## Reflection Questions
 
 What was your favorite part of this assignment?
+ - i enjoyed getting back into coding
 
 What was most challenging about this assignment?
+ - remembering syntax and my bug fixing (this took forever)
 
 What strategies have supported your learning this week (e.g., talking with peers, revisiting the videos/text, office hours)? 
+- office hours, and talking out the issue with friends
 
 Is there anything else you've been reflecting on that you would like to share?
+- i found this assignment pretty hard, and i probably need to start working on the assignments earlier in the week!
