@@ -14,12 +14,14 @@ public class CaesarCipher {
     /** Private offset that tracks how many positions to shift the index for
     * This cipher */
     public int i;
+    public int j;
     public int k;
 
-    public CaesarCipher(Character[] alphabet, DynamicArray<Character> cipher, int i, int k) {
+    public CaesarCipher(Character[] alphabet, DynamicArray<Character> cipher, int i, int j, int k) {
         this.alphabet = alphabet;
         this.cipher = cipher;
         this.i = i;
+        this.j = j;
         this.k = k;
     }
 
@@ -56,16 +58,12 @@ public class CaesarCipher {
         alphabet[25] = 'z';
         for (i=0; i<26; i++) {
             cipher.set(i, alphabet[(26 - offset + i)%26]);
-            System.out.println((26 + offset + i)%26);
             }
         }
-
     
 
     public int get(int i) {
-        System.out.println(cipher.get(i));
         return cipher.get(i); 
-        //return alphabet[i];
     }
 
     /** Implementation of linear search that looks through the alphabet
@@ -74,8 +72,19 @@ public class CaesarCipher {
      * @return int indicating position of val in the alphabet array
      */
     public int findIndex(char val){
+        k = -1;
         for (i=0; i<26; i++) {
             if (val == alphabet[i]) {
+                k = i; 
+            }
+        }
+        return k;
+    }
+
+    public int findIndexCipher(char val){
+        k = -1;
+        for (i=0; i<26; i++) {
+            if (val == cipher.get(i)) {
                 k = i; 
             }
         }
@@ -87,13 +96,21 @@ public class CaesarCipher {
      * @return encoded message */  
     public String encode(String message){
         char[] charArray = message.toCharArray();
-        for(i=0; i< charArray.length; i++) {
-           findIndex(charArray[i]);
-           
+        char[] encodedMessage = new char[charArray.length];
+        for(j=0; j < charArray.length; j++) {
+            if (findIndex(charArray[j]) == -1) { 
+                encodedMessage[j] = charArray[j];
+            } else {
+                int k = findIndex(charArray[j]);
+                System.out.println(cipher.get(k) + " new letter");
+                encodedMessage[j] = cipher.get(k);
+            }
         }
 
-        return new String(); 
-     }
+        String encodedMessageString = new String(encodedMessage);
+        System.out.println(encodedMessageString);
+        return encodedMessageString; 
+    }
 
     /** Decode a message using the cipher 
      * @param String message to decode
@@ -101,13 +118,28 @@ public class CaesarCipher {
      * @return decoded message
     */
     public String decode(String message){
-        // Fill in here and update return statement based on your code
-        return new String();
+        char[] charArray = message.toCharArray();
+        char[] encodedMessage = new char[charArray.length];
+        for(j=0; j < charArray.length; j++) {
+            System.out.println(charArray[j] + " this is it");
+            if (findIndexCipher(charArray[j]) == -1) { 
+                encodedMessage[j] = charArray[j];
+            } else {
+                int k = findIndexCipher(charArray[j]);
+                System.out.println(alphabet[k] + " new letter");
+                encodedMessage[j] = alphabet[k];
+            }
+        }
+
+        String encodedMessageString = new String(encodedMessage);
+        System.out.println(encodedMessageString);
+        return encodedMessageString; 
     }
 
     public static void main(String[] args) {
-        CaesarCipher classUnderTest = new CaesarCipher(3);
-        classUnderTest.get(17);
+        CaesarCipher classUnderTest = new CaesarCipher(8);
+        //classUnderTest.get(17);
+        classUnderTest.encode("this is a secret");
     }
     
 }
